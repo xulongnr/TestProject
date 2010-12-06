@@ -53,9 +53,34 @@
 	[[NSURLCache sharedURLCache] setMemoryCapacity:0];
 	[[NSURLCache sharedURLCache] setDiskCapacity:0];
 	
-	NSURL *url = [NSURL URLWithString:@"http://rss.sina.com.cn/news/marquee/ddt.xml"];
+	//NSURL *url = [NSURL URLWithString:@"http://newsrss.bbc.co.uk/rss/sportonline_world_edition/front_page/rss.xml"];
+	//NSURL *url = [NSURL URLWithString:@"http://news.163.com/special/00011K6L/rss_newstop.xml"];
+	//NSURL *url = [NSURL URLWithString:@"http://rss.sina.com.cn/news/marquee/ddt.xml"];
+	NSURL *url = [NSURL URLWithString:@"http://news.weiphone.com/rss.xml"];
+	
 	BOOL success = NO;
-	NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:url];
+	
+	NSMutableData *treedata = [NSMutableData alloc];
+	[treedata initWithContentsOfURL:url];
+	
+	NSString* folder = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE) objectAtIndex:0];
+	NSString* path = [folder stringByAppendingPathComponent:@"rss.xml"];
+	[treedata writeToFile:path atomically:NO];
+	
+	//NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_2312_80);
+	//NSString* strdata = [[NSString alloc]initWithData:treedata encoding:enc];
+	//NSData* data = [strdata dataUsingEncoding:NSUTF8StringEncoding];
+	
+	// Reading from saved file.
+	NSFileHandle *file = [NSFileHandle fileHandleForReadingAtPath:path];
+	NSData *data = [file readDataToEndOfFile];
+	
+	NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
+	//[strdata dealloc];
+	[treedata dealloc];
+	
+	//NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:url];
+
 	[parser setDelegate:self];
 	[parser setShouldProcessNamespaces:YES];
 	[parser setShouldReportNamespacePrefixes:YES];

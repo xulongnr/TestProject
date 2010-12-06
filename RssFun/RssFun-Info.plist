@@ -2,18 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>SignerIdentity</key>
-	<string>Apple iPhone OS Application Signing</string>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>English</string>
+	<string>zh_CN</string>
 	<key>CFBundleDisplayName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>世考新闻阅读</string>
 	<key>CFBundleDocumentTypes</key>
 	<array/>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
-	<string>icon.png</string>
+	<string>SicoTech.jpg</string>
 	<key>CFBundleIdentifier</key>
 	<string>9FC726BTWA.com.flipdevnet.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -30,5 +28,9 @@
 	<true/>
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
+	<key>NSMainNibFile~ipad</key>
+	<string>MainWindow-iPad</string>
+	<key>SignerIdentity</key>
+	<string>Apple iPhone OS Application Signing</string>
 </dict>
 </plist>

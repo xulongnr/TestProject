@@ -69,6 +69,24 @@
 	self.descriptionTextView.text = [[[self appDelegate] currentlySelectedBlogItem]description]; 
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+	
+	BOOL IsiPad = NO;
+	
+#ifdef UI_USER_INTERFACE_IDIOM
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		IsiPad = YES;
+	}
+#endif
+	
+	if (IsiPad) {
+		return YES;
+	} else {
+		return (toInterfaceOrientation == UIInterfaceOrientationPortrait);
+	}
+	
+}
+
 - (void)dealloc {
 	[_appDelegate release];
     [super dealloc];

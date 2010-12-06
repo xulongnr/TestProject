@@ -21,6 +21,8 @@
 		84AB062D1037EDF9004F6A96 /* NewsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AB062B1037EDF9004F6A96 /* NewsDetailViewController.xib */; };
 		84EBFD3E1038258B0067E0BD /* unknown.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84EBFD3D1038258B0067E0BD /* unknown.jpg */; };
 		84EBFEA910383E960067E0BD /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EBFEA810383E960067E0BD /* icon.png */; };
+		94407EB712AD1C650097D3DF /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94407EB612AD1C650097D3DF /* MainWindow-iPad.xib */; };
+		94407F0912AD22110097D3DF /* SicoTech.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 94407F0812AD22110097D3DF /* SicoTech.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		84EBFD3D1038258B0067E0BD /* unknown.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = unknown.jpg; sourceTree = "<group>"; };
 		84EBFEA810383E960067E0BD /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* RssFun-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "RssFun-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		94407EB612AD1C650097D3DF /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "Resources-iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		94407F0812AD22110097D3DF /* SicoTech.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SicoTech.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				94407EB512AD1C640097D3DF /* Resources-iPad */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -105,6 +110,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				94407F0812AD22110097D3DF /* SicoTech.jpg */,
 				84EBFEA810383E960067E0BD /* icon.png */,
 				84EBFD3D1038258B0067E0BD /* unknown.jpg */,
 				84AB062B1037EDF9004F6A96 /* NewsDetailViewController.xib */,
@@ -145,6 +151,14 @@
 				84AB062A1037EDF9004F6A96 /* NewsDetailViewController.m */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		94407EB512AD1C640097D3DF /* Resources-iPad */ = {
+			isa = PBXGroup;
+			children = (
+				94407EB612AD1C650097D3DF /* MainWindow-iPad.xib */,
+			);
+			name = "Resources-iPad";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +215,8 @@
 				84AB062D1037EDF9004F6A96 /* NewsDetailViewController.xib in Resources */,
 				84EBFD3E1038258B0067E0BD /* unknown.jpg in Resources */,
 				84EBFEA910383E960067E0BD /* icon.png in Resources */,
+				94407EB712AD1C650097D3DF /* MainWindow-iPad.xib in Resources */,
+				94407F0912AD22110097D3DF /* SicoTech.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +243,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -236,6 +253,8 @@
 				INFOPLIST_FILE = "RssFun-Info.plist";
 				PRODUCT_NAME = RssFun;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos3.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -243,6 +262,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -250,24 +270,25 @@
 				INFOPLIST_FILE = "RssFun-Info.plist";
 				PRODUCT_NAME = RssFun;
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "Don't Code Sign";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Don't Code Sign";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos3.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv6";
 			};
 			name = Debug;
 		};

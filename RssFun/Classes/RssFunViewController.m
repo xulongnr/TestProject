@@ -32,7 +32,7 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	[self toolbarInit];
-	_rssParser = [[BlogRssParser alloc]init];
+	_rssParser = [[BlogRssParser alloc] init];
 	self.rssParser.delegate = self;
 	[[self rssParser]startProcess];
 }
@@ -83,6 +83,24 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	[[self appDelegate] setCurrentlySelectedBlogItem:[[[self rssParser]rssItems]objectAtIndex:indexPath.row]];
 	[self.appDelegate loadNewsDetails];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
+	
+	BOOL IsiPad = NO;
+	
+#ifdef UI_USER_INTERFACE_IDIOM
+	if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+		IsiPad = YES;
+	}
+#endif
+	
+	if (IsiPad) {
+		return YES;
+	} else {
+		return (toInterfaceOrientation == UIInterfaceOrientationPortrait);
+	}
+	
 }
 
 

@@ -1,17 +1,48 @@
 // !$*UTF8*$!
 {
+	1D3623240D0F684500981E51 /* RssFunAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {879, 544}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 926}";
+		};
+	};
+	1D3623250D0F684500981E51 /* RssFunAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {879, 704}}";
+			sepNavSelRange = "{117, 0}";
+			sepNavVisRange = "{266, 857}";
+		};
+	};
 	1D6058900D05DD3D006BFB54 /* RssFun */ = {
 		activeExec = 0;
 		executables = (
 			940523D3129315B2006D5C82 /* RssFun */,
 		);
 	};
+	28D7ACF60DDB3853001CB0EB /* RssFunViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {879, 512}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 810}";
+		};
+	};
+	28D7ACF70DDB3853001CB0EB /* RssFunViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {879, 1968}}";
+			sepNavSelRange = "{1068, 12}";
+			sepNavVisRange = "{207, 1011}";
+		};
+	};
 	29B97313FDCFA39411CA2CEA /* Project object */ = {
-		activeArchitecturePreference = ppc;
+		activeArchitecturePreference = armv7;
 		activeBuildConfigurationName = Debug;
 		activeExecutable = 940523D3129315B2006D5C82 /* RssFun */;
 		activeSDKPreference = iphoneos3.2;
 		activeTarget = 1D6058900D05DD3D006BFB54 /* RssFun */;
+		addToTargets = (
+			1D6058900D05DD3D006BFB54 /* RssFun */,
+		);
 		codeSenseManager = 940523E0129315B8006D5C82 /* Code sense */;
 		executables = (
 			940523D3129315B2006D5C82 /* RssFun */,
@@ -50,7 +81,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					341,
+					701,
 					20,
 					48,
 					43,
@@ -108,7 +139,7 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					301,
+					600,
 					60,
 					20,
 					48,
@@ -125,15 +156,73 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 311632957;
-			PBXWorkspaceStateSaveDate = 311632957;
+			PBXPerProjectTemplateStateSaveDate = 313334826;
+			PBXWorkspaceStateSaveDate = 313334826;
 		};
 		perUserProjectItems = {
-			9405247D1293237B006D5C82 /* PlistBookmark */ = 9405247D1293237B006D5C82 /* PlistBookmark */;
-			9498C4101293278D006554C9 /* PlistBookmark */ = 9498C4101293278D006554C9 /* PlistBookmark */;
+			94407F1D12AD27870097D3DF /* PBXBookmark */ = 94407F1D12AD27870097D3DF /* PBXBookmark */;
+			94407F2A12AD29CD0097D3DF /* PBXBookmark */ = 94407F2A12AD29CD0097D3DF /* PBXBookmark */;
+			94407F5D12AD34CA0097D3DF /* PBXTextBookmark */ = 94407F5D12AD34CA0097D3DF /* PBXTextBookmark */;
+			94407F5F12AD34CA0097D3DF /* PBXTextBookmark */ = 94407F5F12AD34CA0097D3DF /* PBXTextBookmark */;
+			94407F6012AD34CA0097D3DF /* PBXTextBookmark */ = 94407F6012AD34CA0097D3DF /* PBXTextBookmark */;
+			94407F6112AD34CA0097D3DF /* PBXTextBookmark */ = 94407F6112AD34CA0097D3DF /* PBXTextBookmark */;
+			94407F6212AD34CA0097D3DF /* PBXTextBookmark */ = 94407F6212AD34CA0097D3DF /* PBXTextBookmark */;
+			94407F6412AD34CA0097D3DF /* PBXTextBookmark */ = 94407F6412AD34CA0097D3DF /* PBXTextBookmark */;
+			94407F8212AD3ABD0097D3DF /* PBXTextBookmark */ = 94407F8212AD3ABD0097D3DF /* PBXTextBookmark */;
+			94407FA312AD43290097D3DF /* PBXTextBookmark */ = 94407FA312AD43290097D3DF /* PBXTextBookmark */;
+			94407FC012AD49FC0097D3DF /* PBXTextBookmark */ = 94407FC012AD49FC0097D3DF /* PBXTextBookmark */;
+			9440800E12AD56100097D3DF /* PBXTextBookmark */ = 9440800E12AD56100097D3DF /* PBXTextBookmark */;
+			9440803712AD5B470097D3DF /* PlistBookmark */ = 9440803712AD5B470097D3DF /* PlistBookmark */;
+			9440803812AD5B470097D3DF /* PBXTextBookmark */ = 9440803812AD5B470097D3DF /* PBXTextBookmark */;
+			9440803912AD5B470097D3DF /* PBXTextBookmark */ = 9440803912AD5B470097D3DF /* PBXTextBookmark */;
+			9440803A12AD5B470097D3DF /* PBXTextBookmark */ = 9440803A12AD5B470097D3DF /* PBXTextBookmark */;
+			9440803B12AD5B470097D3DF /* PBXTextBookmark */ = 9440803B12AD5B470097D3DF /* PBXTextBookmark */;
+			945BA96E12AD1015002BAE63 /* PBXTextBookmark */ = 945BA96E12AD1015002BAE63 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 940523DF129315B8006D5C82 /* Source Control */;
 		userBuildSettings = {
+		};
+	};
+	32CA4F630368D1EE00C91783 /* RssFun_Prefix.pch */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {879, 493}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 181}";
+		};
+	};
+	8477971B1037096A0056408D /* BlogRssParser.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {879, 640}}";
+			sepNavSelRange = "{729, 22}";
+			sepNavVisRange = "{0, 753}";
+		};
+	};
+	8477971C1037096A0056408D /* BlogRssParser.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {838, 2928}}";
+			sepNavSelRange = "{2072, 0}";
+			sepNavVisRange = "{956, 726}";
+		};
+	};
+	8477972510370A080056408D /* BlogRss.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {957, 480}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 504}";
+		};
+	};
+	84AB06291037EDF9004F6A96 /* NewsDetailViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {879, 493}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 772}";
+		};
+	};
+	84AB062A1037EDF9004F6A96 /* NewsDetailViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1097, 1552}}";
+			sepNavSelRange = "{2826, 0}";
+			sepNavVisRange = "{2212, 689}";
 		};
 	};
 	8D1107310486CEB800E47090 /* RssFun-Info.plist */ = {
@@ -165,6 +254,8 @@
 		executableUserSymbolLevel = 0;
 		libgmallocEnabled = 0;
 		name = RssFun;
+		savedGlobals = {
+		};
 		showTypeColumn = 0;
 		sourceDirectories = (
 		);
@@ -183,26 +274,222 @@
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
 	};
-	9405247D1293237B006D5C82 /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D1107310486CEB800E47090 /* RssFun-Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-		);
-		name = "/Users/norman/Desktop/RssFun/RssFun-Info.plist";
-		rLen = 0;
-		rLoc = 9223372036854775808;
+	94407F1D12AD27870097D3DF /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 94407F0812AD22110097D3DF /* SicoTech.jpg */;
 	};
-	9498C4101293278D006554C9 /* PlistBookmark */ = {
+	94407F2A12AD29CD0097D3DF /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 84EBFEA810383E960067E0BD /* icon.png */;
+	};
+	94407F5D12AD34CA0097D3DF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* RssFunAppDelegate.h */;
+		name = "RssFunAppDelegate.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 926;
+		vrLoc = 0;
+	};
+	94407F5F12AD34CA0097D3DF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 32CA4F630368D1EE00C91783 /* RssFun_Prefix.pch */;
+		name = "RssFun_Prefix.pch: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 181;
+		vrLoc = 0;
+	};
+	94407F6012AD34CA0097D3DF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 84AB06291037EDF9004F6A96 /* NewsDetailViewController.h */;
+		name = "NewsDetailViewController.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 772;
+		vrLoc = 0;
+	};
+	94407F6112AD34CA0097D3DF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* RssFunAppDelegate.m */;
+		name = "RssFunAppDelegate.m: 6";
+		rLen = 0;
+		rLoc = 117;
+		rType = 0;
+		vrLen = 857;
+		vrLoc = 266;
+	};
+	94407F6212AD34CA0097D3DF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* RssFunViewController.h */;
+		name = "RssFunViewController.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 810;
+		vrLoc = 0;
+	};
+	94407F6412AD34CA0097D3DF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8477971B1037096A0056408D /* BlogRssParser.h */;
+		name = "BlogRssParser.h: 31";
+		rLen = 22;
+		rLoc = 729;
+		rType = 0;
+		vrLen = 753;
+		vrLoc = 0;
+	};
+	94407F8212AD3ABD0097D3DF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 94407F8312AD3ABD0097D3DF /* CFString.h */;
+		name = "CFString.h: 711";
+		rLen = 84;
+		rLoc = 38791;
+		rType = 0;
+		vrLen = 1238;
+		vrLoc = 38173;
+	};
+	94407F8312AD3ABD0097D3DF /* CFString.h */ = {
+		isa = PBXFileReference;
+		name = CFString.h;
+		path = /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFString.h;
+		sourceTree = "<absolute>";
+	};
+	94407F8512AD3ABD0097D3DF /* CFStringEncodingExt.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = CFStringEncodingExt.h;
+		path = /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFStringEncodingExt.h;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {879, 2976}}";
+			sepNavSelRange = "{6771, 27}";
+			sepNavVisRange = "{5954, 1753}";
+		};
+	};
+	94407F8712AD3ABD0097D3DF /* NSString.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = NSString.h;
+		path = /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {3512, 6448}}";
+			sepNavSelRange = "{16491, 97}";
+			sepNavVisRange = "{15613, 2454}";
+		};
+	};
+	94407FA312AD43290097D3DF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 94407F8712AD3ABD0097D3DF /* NSString.h */;
+		name = "NSString.h: 282";
+		rLen = 97;
+		rLoc = 16491;
+		rType = 0;
+		vrLen = 2454;
+		vrLoc = 15613;
+	};
+	94407FBE12AD49E90097D3DF /* RssFunViewController.m */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.objc;
+		name = RssFunViewController.m;
+		path = /Users/norman/Downloads/Codes/TestProject/RssFun/Classes/RssFunViewController.m;
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1076, 1824}}";
+			sepNavSelRange = "{1618, 11}";
+			sepNavVisRange = "{1448, 441}";
+		};
+	};
+	94407FC012AD49FC0097D3DF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 94407FC112AD49FC0097D3DF /* NSXMLParser.h */;
+		name = "NSXMLParser.h: 20";
+		rLen = 12;
+		rLoc = 475;
+		rType = 0;
+		vrLen = 1381;
+		vrLoc = 10024;
+	};
+	94407FC112AD49FC0097D3DF /* NSXMLParser.h */ = {
+		isa = PBXFileReference;
+		name = NSXMLParser.h;
+		path = /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS3.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSXMLParser.h;
+		sourceTree = "<absolute>";
+	};
+	9440800E12AD56100097D3DF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 94407F8512AD3ABD0097D3DF /* CFStringEncodingExt.h */;
+		name = "CFStringEncodingExt.h: 134";
+		rLen = 27;
+		rLoc = 6771;
+		rType = 0;
+		vrLen = 1753;
+		vrLoc = 5954;
+	};
+	9440803712AD5B470097D3DF /* PlistBookmark */ = {
 		isa = PlistBookmark;
 		fRef = 8D1107310486CEB800E47090 /* RssFun-Info.plist */;
 		fallbackIsa = PBXBookmark;
 		isK = 0;
 		kPath = (
+			CFBundleDevelopmentRegion,
 		);
-		name = "/Users/norman/Desktop/RssFun/RssFun-Info.plist";
+		name = "/Users/norman/Downloads/Codes/TestProject/RssFun/RssFun-Info.plist";
 		rLen = 0;
 		rLoc = 9223372036854775807;
+	};
+	9440803812AD5B470097D3DF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 84AB062A1037EDF9004F6A96 /* NewsDetailViewController.m */;
+		name = "NewsDetailViewController.m: 88";
+		rLen = 0;
+		rLoc = 2826;
+		rType = 0;
+		vrLen = 689;
+		vrLoc = 2212;
+	};
+	9440803912AD5B470097D3DF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 94407FBE12AD49E90097D3DF /* RssFunViewController.m */;
+		name = "RssFunViewController.m: 17";
+		rLen = 10;
+		rLoc = 357;
+		rType = 0;
+		vrLen = 1009;
+		vrLoc = 41;
+	};
+	9440803A12AD5B470097D3DF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8477971C1037096A0056408D /* BlogRssParser.m */;
+		name = "BlogRssParser.m: 59";
+		rLen = 0;
+		rLoc = 1722;
+		rType = 0;
+		vrLen = 1434;
+		vrLoc = 1133;
+	};
+	9440803B12AD5B470097D3DF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8477971C1037096A0056408D /* BlogRssParser.m */;
+		name = "BlogRssParser.m: 101";
+		rLen = 0;
+		rLoc = 3319;
+		rType = 0;
+		vrLen = 1312;
+		vrLoc = 2766;
+	};
+	945BA96E12AD1015002BAE63 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 8477972510370A080056408D /* BlogRss.m */;
+		name = "BlogRss.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 504;
+		vrLoc = 0;
 	};
 }
