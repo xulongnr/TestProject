@@ -31,10 +31,19 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	[super viewDidLoad];
+	[self setTitle:@"世考科技 新闻索引"];
 	[self toolbarInit];
 	_rssParser = [[BlogRssParser alloc] init];
 	self.rssParser.delegate = self;
-	[[self rssParser]startProcess];
+	
+	NSString *url = //@"http://newsrss.bbc.co.uk/rss/sportonline_world_edition/front_page/rss.xml";
+					//@"http://news.163.com/special/00011K6L/rss_newstop.xml";
+					//@"http://rss.sina.com.cn/news/marquee/ddt.xml";
+					@"http://news.weiphone.com/rss.xml";
+					//@"http://www.51ipa.com/rss.php";
+	[[self rssParser] setUrlRss:url];
+	[[self rssParser] startProcess];
+	[url release];
 }
 	
 -(void)reloadRss{
@@ -58,7 +67,7 @@
 
 -(void)processHasErrors{
 	//Might be due to Internet
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Rss Fun" message:@"Unable to download rss. Please check if you are connected to internet."
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"世考新闻" message:@"Unable to download rss. Please check if you are connected to internet."
 												   delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
 	[alert show];	
 	[alert release];

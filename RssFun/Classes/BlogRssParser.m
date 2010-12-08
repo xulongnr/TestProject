@@ -8,6 +8,7 @@
 
 #import "BlogRssParser.h"
 #import "BlogRss.h"
+#import "XmlParser.h"
 
 @implementation BlogRssParser
 
@@ -16,7 +17,7 @@
 @synthesize rssItems = _rssItems;
 @synthesize delegate = _delegate;
 @synthesize retrieverQueue = _retrieverQueue;
-
+@synthesize urlRss = _urlRss;
 
 - (id)init{
 	if(![super init]){
@@ -44,6 +45,24 @@
 	[op release];
 }
 
+- (NSData *)dataFromData:(NSData *)data withEncoding:(NSString *)encoding
+{
+	NSStringEncoding nsEncoding = NSUTF8StringEncoding;
+	if (encoding || encoding == @"utf-8") {
+		CFStringEncoding cfEncoding = CFStringConvertIANACharSetNameToEncoding((CFStringRef)encoding);
+		if (cfEncoding != kCFStringEncodingInvalidId) {
+			nsEncoding = CFStringConvertEncodingToNSStringEncoding(cfEncoding);
+		} else {
+			return data;
+		}
+	} else {
+		return data;
+	}
+	NSString *formattedString = [[[NSString alloc]initWithData:data encoding:nsEncoding]autorelease];
+	NSLog(formattedString);
+	return [[formattedString dataUsingEncoding:NSUTF8StringEncoding] retain];
+}
+
 -(BOOL)fetchAndParseRss{
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
@@ -53,40 +72,38 @@
 	[[NSURLCache sharedURLCache] setMemoryCapacity:0];
 	[[NSURLCache sharedURLCache] setDiskCapacity:0];
 	
-	//NSURL *url = [NSURL URLWithString:@"http://newsrss.bbc.co.uk/rss/sportonline_world_edition/front_page/rss.xml"];
-	//NSURL *url = [NSURL URLWithString:@"http://news.163.com/special/00011K6L/rss_newstop.xml"];
-	//NSURL *url = [NSURL URLWithString:@"http://rss.sina.com.cn/news/marquee/ddt.xml"];
-	NSURL *url = [NSURL URLWithString:@"http://news.weiphone.com/rss.xml"];
-	
 	BOOL success = NO;
 	
-	NSMutableData *treedata = [NSMutableData alloc];
-	[treedata initWithContentsOfURL:url];
+	if (nil != _urlRss) {
+		NSData* xmlData;
+		[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+		@try {
+			xmlData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:_urlRss]];
+		}
+		@catch (NSException * e) {
+			//Some error while downloading data
+		}
+		@finally {
+			_textEncodingName = @"utf-8";
+			NSLog(@"encoding name is %@", _textEncodingName);
+			xmlData = [self dataFromData:xmlData withEncoding:_textEncodingName];
+			NSXMLParser *parser = [[NSXMLParser alloc] initWithData:xmlData];
+			
+			[parser setDelegate:self];
+			[parser setShouldProcessNamespaces:YES];
+			[parser setShouldReportNamespacePrefixes:YES];
+			[parser setShouldResolveExternalEntities:NO];
+			success = [parser parse];
+			[parser release];
+						
+			[xmlData release];
+		}
+		[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	}
 	
-	NSString* folder = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, TRUE) objectAtIndex:0];
-	NSString* path = [folder stringByAppendingPathComponent:@"rss.xml"];
-	[treedata writeToFile:path atomically:NO];
+	//NSLog(@"Obtaining xml from %@", _urlRss);
+	//NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:[NSURL URLWithString:_urlRss]];
 	
-	//NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_2312_80);
-	//NSString* strdata = [[NSString alloc]initWithData:treedata encoding:enc];
-	//NSData* data = [strdata dataUsingEncoding:NSUTF8StringEncoding];
-	
-	// Reading from saved file.
-	NSFileHandle *file = [NSFileHandle fileHandleForReadingAtPath:path];
-	NSData *data = [file readDataToEndOfFile];
-	
-	NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
-	//[strdata dealloc];
-	[treedata dealloc];
-	
-	//NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:url];
-
-	[parser setDelegate:self];
-	[parser setShouldProcessNamespaces:YES];
-	[parser setShouldReportNamespacePrefixes:YES];
-	[parser setShouldResolveExternalEntities:NO];
-	success = [parser parse];
-	[parser release];
 	[pool drain];
 	return success;
 }
@@ -97,7 +114,7 @@
 		elementName = qualifiedName;
 	}
 	if ([elementName isEqualToString:@"item"]) {
-		self.currentItem = [[[BlogRss alloc]init]autorelease];
+		self.currentItem = [[[BlogRss alloc] init] autorelease];
 	}else if ([elementName isEqualToString:@"media:thumbnail"]) {
 		self.currentItem.mediaUrl = [attributeDict valueForKey:@"url"];
 	} else if([elementName isEqualToString:@"title"] || 
@@ -135,13 +152,15 @@
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
 	if(nil != self.currentItemValue){
-		[self.currentItemValue appendString:string];
+		[self.currentItemValue appendString:[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
 	}
 }
 
+/*
 - (void)parser:(NSXMLParser *)parser foundCDATA:(NSData *)CDATABlock{
 	//Not needed for now
 }
+*/
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError{
 	if(parseError.code != NSXMLParserDelegateAbortedParseError) {
@@ -151,8 +170,6 @@
 		 waitUntilDone:NO];
 	}
 }
-
-
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
 	[(id)[self delegate] performSelectorOnMainThread:@selector(processCompleted)

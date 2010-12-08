@@ -20,7 +20,8 @@
 
 -(void)viewDidLoad{
 	[super viewDidLoad];
-	
+	[self setTitle:@"世考科技 新闻阅读"];
+	 
     UIBarButtonItem *actionButton = [[UIBarButtonItem alloc]
 									  initWithBarButtonSystemItem:UIBarButtonSystemItemAction
 									  target:self action:@selector(openWebLink)];
@@ -44,29 +45,39 @@
 	}
 }
 
+- (void)setLabelPositon {
+	
+	CGRect imageRect = self.image.frame;
+	imageRect.origin.y = imageRect.size.height;
+	imageRect.size.height = 16;
+	[_titleCompanyLabel setFrame:imageRect];
+	
+	CGRect txtRect = CGRectMake(0, 0, _image.frame.origin.x, _image.frame.size.height+20);
+	[_titleTextView setFrame:txtRect];
+	[_titleTextView setFont:[UIFont boldSystemFontOfSize:35]];
+	//[_titleTextView setTextAlignment:UITextAlignmentCenter];
+	
+	txtRect = CGRectMake(0, txtRect.size.height, _appDelegate.window.frame.size.width, 
+						 _appDelegate.window.frame.size.height - txtRect.size.height); 
+	[_descriptionTextView setFrame:txtRect];
+	[_descriptionTextView setFont:[UIFont systemFontOfSize:20]];	
+}
+
+
 - (void)viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:animated];
-	NSString * mediaUrl = [[[self appDelegate]currentlySelectedBlogItem]mediaUrl];
-	[[self image]setImage:[UIImage imageNamed:@"unknown.jpg"]];
-	if(nil != mediaUrl){
-		NSData* imageData;
-		[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-		@try {
-			imageData = [[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:mediaUrl]];
-		}
-		@catch (NSException * e) {
-			//Some error while downloading data
-		}
-		@finally {
-			UIImage * imageFromImageData = [[UIImage alloc] initWithData:imageData];
-			[[self image]setImage:imageFromImageData];
-			[imageData release];
-			[imageFromImageData release];
-		}
-		[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-	}
+	
+	// Set default image name
+	[[self image] setImage:[UIImage imageNamed:@"SicoTech.jpg"]];
+	
 	self.titleTextView.text = [[[self appDelegate] currentlySelectedBlogItem]title];
-	self.descriptionTextView.text = [[[self appDelegate] currentlySelectedBlogItem]description]; 
+	self.descriptionTextView.text = [[[self appDelegate] currentlySelectedBlogItem]description];
+	
+	[self setLabelPositon];
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+	[self setLabelPositon];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
@@ -84,7 +95,6 @@
 	} else {
 		return (toInterfaceOrientation == UIInterfaceOrientationPortrait);
 	}
-	
 }
 
 - (void)dealloc {

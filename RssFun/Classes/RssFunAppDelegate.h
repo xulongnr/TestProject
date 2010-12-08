@@ -13,19 +13,19 @@
 @class BlogRss;
 
 @interface RssFunAppDelegate : NSObject <UIApplicationDelegate> {
-    UIWindow * _window;
-    RssFunViewController * _viewController;
-	UINavigationController * _navigationController;
+    UIWindow                 * _window;
+    RssFunViewController     * _viewController;
+	UINavigationController   * _navigationController;
 	NewsDetailViewController * _newsDetailController;
 	BlogRss * _currentlySelectedBlogItem;
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow * window;
-@property (nonatomic, retain) IBOutlet RssFunViewController *viewController;
-@property (nonatomic, retain) IBOutlet UINavigationController * navigationController;
-@property (nonatomic,retain) IBOutlet NewsDetailViewController * newsDetailController;
+@property (nonatomic, retain) IBOutlet UIWindow                 *window;
+@property (nonatomic, retain) IBOutlet RssFunViewController     *viewController;
+@property (nonatomic, retain) IBOutlet UINavigationController   *navigationController;
+@property (nonatomic, retain) IBOutlet NewsDetailViewController *newsDetailController;
 
-@property (readwrite,retain) BlogRss * currentlySelectedBlogItem;
+@property (readwrite, retain) BlogRss *currentlySelectedBlogItem;
 
 -(void)loadNewsDetails;
 

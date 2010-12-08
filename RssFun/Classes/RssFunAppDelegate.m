@@ -28,7 +28,7 @@
 }
 
 -(void)loadNewsDetails{
-	[[self navigationController]pushViewController:_newsDetailController animated:YES];
+	[[self navigationController] pushViewController:_newsDetailController animated:YES];
 }
 
 

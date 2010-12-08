@@ -18,6 +18,8 @@
 	NSMutableArray * _rssItems;
 	id<BlogRssParserDelegate> _delegate;
 	NSOperationQueue *_retrieverQueue;
+	NSString *_textEncodingName;
+	NSString *_urlRss;
 }
 
 
@@ -27,6 +29,7 @@
 
 @property(nonatomic, assign) id<BlogRssParserDelegate> delegate;
 @property(nonatomic, retain) NSOperationQueue *retrieverQueue;
+@property(nonatomic, retain) NSString *urlRss;
 
 - (void)startProcess;
 
