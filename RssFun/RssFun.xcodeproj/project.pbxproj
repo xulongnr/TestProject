@@ -259,7 +259,7 @@
 				INFOPLIST_FILE = "RssFun-Info.plist";
 				PRODUCT_NAME = RssFun;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos4.2;
+				SDKROOT = iphoneos3.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;

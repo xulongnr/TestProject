@@ -102,9 +102,7 @@
     // Configure the cell...
 	NSArray *temp = [feedList objectAtIndex:indexPath.row];
 	cell.textLabel.text = [temp objectAtIndex:0];
-	cell.detailTextLabel.text = [temp objectAtIndex:1];
-	
-	//[temp release];
+	//cell.detailTextLabel.text = [temp objectAtIndex:1];
 	
     return cell;
 }

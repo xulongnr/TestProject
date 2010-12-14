@@ -119,8 +119,9 @@
 
 -(void)processHasErrors{
 	//Might be due to Internet
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"世考新闻" message:@"Unable to download rss. Please check if you are connected to internet."
-												   delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+	UIAlertView *alert = [[UIAlertView alloc] 
+			initWithTitle:@"世考新闻" message:@"尊敬的用户，我们十分抱歉的告诉您，因为您的账户余额不足，所以无权限继续访问，谢谢！"
+			 delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
 	[alert show];	
 	[alert release];
 	[self toggleToolBarButtons:YES];

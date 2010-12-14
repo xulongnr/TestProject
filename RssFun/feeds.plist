@@ -7,14 +7,6 @@
 		<string>http://rss.sina.com.cn/news/marquee/ddt.xml</string>
 	</array>
 	<array>
-		<string>新浪网 国际要闻</string>
-		<string>http://rss.sina.com.cn/news/world/focus15.xml</string>
-	</array>
-	<array>
-		<string>新浪网 体育要闻汇总</string>
-		<string>http://rss.sina.com.cn/roll/sports/hot_roll.xml</string>
-	</array>
-	<array>
 		<string>云科技</string>
 		<string>http://www.yunkeji.com/?feed=rss2</string>
 	</array>
@@ -33,6 +25,30 @@
 	<array>
 		<string>51iPA 软件精选</string>
 		<string>http://www.51ipa.com/rss.php</string>
+	</array>
+	<array>
+		<string>东方管理咨询在线</string>
+		<string></string>
+	</array>
+	<array>
+		<string>联通热线</string>
+		<string></string>
+	</array>
+	<array>
+		<string>南京在线</string>
+		<string></string>
+	</array>
+	<array>
+		<string>118114人才招聘</string>
+		<string></string>
+	</array>
+	<array>
+		<string>视频点点通</string>
+		<string></string>
+	</array>
+	<array>
+		<string>财务在线系统</string>
+		<string></string>
 	</array>
 </array>
 </plist>
