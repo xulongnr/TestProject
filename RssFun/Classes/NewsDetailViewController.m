@@ -10,6 +10,9 @@
 #import "RssFunAppDelegate.h"
 #import "BlogRss.h";
 
+#define TITLE_TEXT_SIZE 25
+#define BODY_TEXT_SIZE  20
+
 @implementation NewsDetailViewController
 
 @synthesize appDelegate = _appDelegate;
@@ -54,13 +57,13 @@
 	
 	CGRect txtRect = CGRectMake(0, 0, _image.frame.origin.x, _image.frame.size.height+20);
 	[_titleTextView setFrame:txtRect];
-	[_titleTextView setFont:[UIFont boldSystemFontOfSize:35]];
+	[_titleTextView setFont:[UIFont boldSystemFontOfSize:TITLE_TEXT_SIZE]];
 	//[_titleTextView setTextAlignment:UITextAlignmentCenter];
 	
 	txtRect = CGRectMake(0, txtRect.size.height, _appDelegate.window.frame.size.width, 
 						 _appDelegate.window.frame.size.height - txtRect.size.height); 
 	[_descriptionTextView setFrame:txtRect];
-	[_descriptionTextView setFont:[UIFont systemFontOfSize:20]];	
+	[_descriptionTextView setFont:[UIFont systemFontOfSize:BODY_TEXT_SIZE]];
 }
 
 

@@ -10,6 +10,7 @@
 #import "BlogRssParser.h"
 #import "BlogRss.h";
 #import "RssFunAppDelegate.h"
+#import "FeedListViewController.h"
 
 @implementation RssFunViewController
 
@@ -17,15 +18,68 @@
 @synthesize tableView = _tableView;
 @synthesize appDelegate = _appDelegate;
 @synthesize toolbar = _toolbar;
+@synthesize rssURL;
 
 -(void)toolbarInit{
     UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc]
 								   initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
 								   target:self action:@selector(reloadRss)];
 	refreshButton.enabled = NO;
-	NSArray *items = [NSArray arrayWithObjects: refreshButton,  nil];
+	NSArray *items = [NSArray arrayWithObjects:refreshButton, nil];
 	[self.toolbar setItems:items animated:NO];
+	
+	UIBarButtonItem *feedsButton = [[UIBarButtonItem alloc]
+									initWithTitle:@"选择订阅" style:UIBarButtonItemStylePlain
+									target:self action:@selector(barBtnTapped:)];
+	feedsButton.enabled = YES;
+	self.navigationItem.leftBarButtonItem = feedsButton;
+	
 	[refreshButton release];
+	[feedsButton release];
+}
+
+-(void)barBtnTapped:(id) sender {
+	if ([_popover isPopoverVisible]) {
+		[_popover dismissPopoverAnimated:YES];
+	
+	} else {
+
+	FeedListViewController *flv = [[FeedListViewController alloc] init];
+	flv.delegate = self;
+	_popover = [[UIPopoverController alloc] initWithContentViewController:flv];
+	[flv release];
+	[_popover presentPopoverFromBarButtonItem:sender 
+							   permittedArrowDirections:UIPopoverArrowDirectionAny
+											   animated:YES];
+	}
+}
+
+-(void)setRssURL:(NSString *)newRssURL {
+	if (rssURL != newRssURL) {
+		[rssURL release];
+		rssURL = [newRssURL retain];
+		
+		NSLog(@"setting rss to %@", newRssURL);
+		
+		[self configureView];
+	}
+	
+	if (_popover != nil) {
+		[_popover dismissPopoverAnimated:YES];
+	}
+}
+
+-(void)configureView {
+		
+	[[self rssParser] setUrlRss:rssURL];
+	[[self rssParser] startProcess];
+}
+
+-(void)feedSelectd:(NSString *)rssUrl {
+	
+	NSLog(@"feedSelected called");
+	self.rssURL = rssUrl;
+	[self configureView];
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -36,14 +90,12 @@
 	_rssParser = [[BlogRssParser alloc] init];
 	self.rssParser.delegate = self;
 	
-	NSString *url = //@"http://newsrss.bbc.co.uk/rss/sportonline_world_edition/front_page/rss.xml";
-					//@"http://news.163.com/special/00011K6L/rss_newstop.xml";
-					//@"http://rss.sina.com.cn/news/marquee/ddt.xml";
-					@"http://news.weiphone.com/rss.xml";
-					//@"http://www.51ipa.com/rss.php";
-	[[self rssParser] setUrlRss:url];
-	[[self rssParser] startProcess];
-	[url release];
+	// set rss to weiphone by default
+	//self.rssURL = @"http://news.weiphone.com/rss.xml";
+	
+	NSLog(@"view Did Load");
+	
+	//[self configureView];
 }
 	
 -(void)reloadRss{
@@ -94,6 +146,12 @@
 	[self.appDelegate loadNewsDetails];
 }
 
+
+
+#pragma mark -
+#pragma mark Rotate view support
+
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
 	
 	BOOL IsiPad = NO;
@@ -118,6 +176,7 @@
 	[_toolbar release];
 	[_tableView release];
 	[_rssParser release];
+	[_popover release];
     [super dealloc];
 }
 

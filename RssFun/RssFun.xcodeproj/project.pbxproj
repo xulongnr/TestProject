@@ -21,6 +21,8 @@
 		84AB062D1037EDF9004F6A96 /* NewsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84AB062B1037EDF9004F6A96 /* NewsDetailViewController.xib */; };
 		94407EB712AD1C650097D3DF /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94407EB612AD1C650097D3DF /* MainWindow-iPad.xib */; };
 		94407F0912AD22110097D3DF /* SicoTech.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 94407F0812AD22110097D3DF /* SicoTech.jpg */; };
+		94894F3212B53D34003EF83C /* FeedListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94894F3112B53D34003EF83C /* FeedListViewController.m */; };
+		94894F3C12B53DCF003EF83C /* feeds.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94894F3B12B53DCF003EF83C /* feeds.plist */; };
 		94F2785012AF4DDE00AF5134 /* NewsDetailViewController-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94F2784F12AF4DDE00AF5134 /* NewsDetailViewController-iPad.xib */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,9 @@
 		8D1107310486CEB800E47090 /* RssFun-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "RssFun-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		94407EB612AD1C650097D3DF /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainWindow-iPad.xib"; path = "Resources-iPad/MainWindow-iPad.xib"; sourceTree = "<group>"; };
 		94407F0812AD22110097D3DF /* SicoTech.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SicoTech.jpg; sourceTree = "<group>"; };
+		94894F3012B53D34003EF83C /* FeedListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedListViewController.h; sourceTree = "<group>"; };
+		94894F3112B53D34003EF83C /* FeedListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedListViewController.m; sourceTree = "<group>"; };
+		94894F3B12B53DCF003EF83C /* feeds.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = feeds.plist; sourceTree = "<group>"; };
 		94F2784F12AF4DDE00AF5134 /* NewsDetailViewController-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "NewsDetailViewController-iPad.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +113,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				94894F3B12B53DCF003EF83C /* feeds.plist */,
 				94407F0812AD22110097D3DF /* SicoTech.jpg */,
 				84AB062B1037EDF9004F6A96 /* NewsDetailViewController.xib */,
 				2899E5210DE3E06400AC0155 /* RssFunViewController.xib */,
@@ -141,6 +147,8 @@
 		84AB05BB1037DCAB004F6A96 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				94894F3012B53D34003EF83C /* FeedListViewController.h */,
+				94894F3112B53D34003EF83C /* FeedListViewController.m */,
 				28D7ACF60DDB3853001CB0EB /* RssFunViewController.h */,
 				28D7ACF70DDB3853001CB0EB /* RssFunViewController.m */,
 				84AB06291037EDF9004F6A96 /* NewsDetailViewController.h */,
@@ -213,6 +221,7 @@
 				94407EB712AD1C650097D3DF /* MainWindow-iPad.xib in Resources */,
 				94407F0912AD22110097D3DF /* SicoTech.jpg in Resources */,
 				94F2785012AF4DDE00AF5134 /* NewsDetailViewController-iPad.xib in Resources */,
+				94894F3C12B53DCF003EF83C /* feeds.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +238,7 @@
 				8477971D1037096A0056408D /* BlogRssParser.m in Sources */,
 				8477972610370A080056408D /* BlogRss.m in Sources */,
 				84AB062C1037EDF9004F6A96 /* NewsDetailViewController.m in Sources */,
+				94894F3212B53D34003EF83C /* FeedListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

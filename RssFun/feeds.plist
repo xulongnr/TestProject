@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<array>
+		<string>新浪网 新闻要闻</string>
+		<string>http://rss.sina.com.cn/news/marquee/ddt.xml</string>
+	</array>
+	<array>
+		<string>新浪网 国际要闻</string>
+		<string>http://rss.sina.com.cn/news/world/focus15.xml</string>
+	</array>
+	<array>
+		<string>新浪网 体育要闻汇总</string>
+		<string>http://rss.sina.com.cn/roll/sports/hot_roll.xml</string>
+	</array>
+	<array>
+		<string>云科技</string>
+		<string>http://www.yunkeji.com/?feed=rss2</string>
+	</array>
+	<array>
+		<string>圣叹</string>
+		<string>http://feed.feedsky.com/kono</string>
+	</array>
+	<array>
+		<string>威锋网 新闻</string>
+		<string>http://news.weiphone.com/rss.xml</string>
+	</array>
+	<array>
+		<string>网易 头条新闻</string>
+		<string>http://news.163.com/special/00011K6L/rss_newstop.xml</string>
+	</array>
+	<array>
+		<string>51iPA 软件精选</string>
+		<string>http://www.51ipa.com/rss.php</string>
+	</array>
+</array>
+</plist>

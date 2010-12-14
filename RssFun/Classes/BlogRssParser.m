@@ -59,7 +59,7 @@
 		return data;
 	}
 	NSString *formattedString = [[[NSString alloc]initWithData:data encoding:nsEncoding]autorelease];
-	NSLog(formattedString);
+	//NSLog(@"xml data is: %@", formattedString);
 	return [[formattedString dataUsingEncoding:NSUTF8StringEncoding] retain];
 }
 
@@ -74,6 +74,16 @@
 	
 	BOOL success = NO;
 	
+	NSLog(@"Obtaining xml from %@", _urlRss);
+	NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:[NSURL URLWithString:_urlRss]];
+	[parser setDelegate:self];
+	[parser setShouldProcessNamespaces:NO];
+	[parser setShouldReportNamespacePrefixes:NO];
+	[parser setShouldResolveExternalEntities:NO];
+	success = [parser parse];
+	[parser release];	
+	
+/*	
 	if (nil != _urlRss) {
 		NSData* xmlData;
 		[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
@@ -86,12 +96,12 @@
 		@finally {
 			_textEncodingName = @"utf-8";
 			NSLog(@"encoding name is %@", _textEncodingName);
-			xmlData = [self dataFromData:xmlData withEncoding:_textEncodingName];
+			//xmlData = [self dataFromData:xmlData withEncoding:_textEncodingName];
 			NSXMLParser *parser = [[NSXMLParser alloc] initWithData:xmlData];
 			
 			[parser setDelegate:self];
-			[parser setShouldProcessNamespaces:YES];
-			[parser setShouldReportNamespacePrefixes:YES];
+			[parser setShouldProcessNamespaces:NO];
+			[parser setShouldReportNamespacePrefixes:NO];
 			[parser setShouldResolveExternalEntities:NO];
 			success = [parser parse];
 			[parser release];
@@ -100,10 +110,7 @@
 		}
 		[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	}
-	
-	//NSLog(@"Obtaining xml from %@", _urlRss);
-	//NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:[NSURL URLWithString:_urlRss]];
-	
+*/	
 	[pool drain];
 	return success;
 }
