@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<array>
+		<string>Sina News</string>
+		<string>http://rss.sina.com.cn/news/marquee/ddt.xml</string>
+	</array>
+	<array>
+		<string>Weiphone News</string>
+		<string>http://news.weiphone.com/rss.xml</string>
+	</array>
+	<array>
+		<string>51ipa Feeds</string>
+		<string>http://www.51ipa.com/rss.php</string>
+	</array>
+</array>
+</plist>
