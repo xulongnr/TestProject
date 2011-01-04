@@ -8,7 +8,7 @@
 
 #import "NewsDetailViewController.h"
 #import "RssFunAppDelegate.h"
-#import "BlogRss.h";
+#import "BlogRss.h"
 
 #define TITLE_TEXT_SIZE 25
 #define BODY_TEXT_SIZE  20

@@ -23,6 +23,8 @@
 		94407F0912AD22110097D3DF /* SicoTech.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 94407F0812AD22110097D3DF /* SicoTech.jpg */; };
 		94894F3212B53D34003EF83C /* FeedListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94894F3112B53D34003EF83C /* FeedListViewController.m */; };
 		94894F3C12B53DCF003EF83C /* feeds.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94894F3B12B53DCF003EF83C /* feeds.plist */; };
+		9494161D12C7144300010F1B /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 9494161B12C7144300010F1B /* Default-Landscape.png */; };
+		9494161E12C7144300010F1B /* Default-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 9494161C12C7144300010F1B /* Default-Portrait.png */; };
 		94F2785012AF4DDE00AF5134 /* NewsDetailViewController-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94F2784F12AF4DDE00AF5134 /* NewsDetailViewController-iPad.xib */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +54,8 @@
 		94894F3012B53D34003EF83C /* FeedListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedListViewController.h; sourceTree = "<group>"; };
 		94894F3112B53D34003EF83C /* FeedListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedListViewController.m; sourceTree = "<group>"; };
 		94894F3B12B53DCF003EF83C /* feeds.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = feeds.plist; sourceTree = "<group>"; };
+		9494161B12C7144300010F1B /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape.png"; sourceTree = "<group>"; };
+		9494161C12C7144300010F1B /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait.png"; sourceTree = "<group>"; };
 		94F2784F12AF4DDE00AF5134 /* NewsDetailViewController-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "NewsDetailViewController-iPad.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,6 +117,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9494161B12C7144300010F1B /* Default-Landscape.png */,
+				9494161C12C7144300010F1B /* Default-Portrait.png */,
 				94894F3B12B53DCF003EF83C /* feeds.plist */,
 				94407F0812AD22110097D3DF /* SicoTech.jpg */,
 				84AB062B1037EDF9004F6A96 /* NewsDetailViewController.xib */,
@@ -176,6 +182,7 @@
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+				94A4BD5812C7420000C5067E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -222,10 +229,28 @@
 				94407F0912AD22110097D3DF /* SicoTech.jpg in Resources */,
 				94F2785012AF4DDE00AF5134 /* NewsDetailViewController-iPad.xib in Resources */,
 				94894F3C12B53DCF003EF83C /* feeds.plist in Resources */,
+				9494161D12C7144300010F1B /* Default-Landscape.png in Resources */,
+				9494161E12C7144300010F1B /* Default-Portrait.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		94A4BD5812C7420000C5067E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export CODESIGN_ALLOCATE=/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ]; then\n/Developer/iphoneentitlements401/gen_entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
@@ -250,16 +275,16 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = RssFun_Prefix.pch;
 				INFOPLIST_FILE = "RssFun-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2.2;
 				PRODUCT_NAME = RssFun;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos3.2;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -269,13 +294,13 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = RssFun_Prefix.pch;
 				INFOPLIST_FILE = "RssFun-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.2.2;
 				PRODUCT_NAME = RssFun;
-				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -287,12 +312,11 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv6";
 			};
@@ -302,13 +326,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Don't Code Sign";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos4.2;
 			};
 			name = Release;
 		};
