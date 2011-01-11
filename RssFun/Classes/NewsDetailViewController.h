@@ -14,7 +14,6 @@
 	RssFunAppDelegate * _appDelegate;
 	UITextView * _titleTextView;
 	UITextView * _descriptionTextView;
-	UILabel    * _titleCompanyLabel;   
 	UIToolbar  * _toolbar;
 	UIImageView * _image;
 }

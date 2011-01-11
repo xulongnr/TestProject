@@ -84,7 +84,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	[self setTitle:@"世考科技 新闻索引"];
+	[self setTitle:@"新闻索引"];
 	[self toolbarInit];
 	_rssParser = [[BlogRssParser alloc] init];
 	self.rssParser.delegate = self;

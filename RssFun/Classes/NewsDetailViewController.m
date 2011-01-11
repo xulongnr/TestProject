@@ -23,7 +23,7 @@
 
 -(void)viewDidLoad{
 	[super viewDidLoad];
-	[self setTitle:@"世考科技 新闻阅读"];
+	[self setTitle:@"新闻阅读"];
 	 
     UIBarButtonItem *actionButton = [[UIBarButtonItem alloc]
 									  initWithBarButtonSystemItem:UIBarButtonSystemItemAction
@@ -49,11 +49,6 @@
 }
 
 - (void)setLabelPositon {
-	
-	CGRect imageRect = self.image.frame;
-	imageRect.origin.y = imageRect.size.height;
-	imageRect.size.height = 16;
-	[_titleCompanyLabel setFrame:imageRect];
 	
 	CGRect txtRect = CGRectMake(0, 0, _image.frame.origin.x, _image.frame.size.height+20);
 	[_titleTextView setFrame:txtRect];

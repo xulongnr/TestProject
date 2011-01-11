@@ -7,11 +7,9 @@
 //
 
 #import "SplitViewAppDelegate.h"
-
-
 #import "RootViewController.h"
 #import "DetailViewController.h"
-
+#import "MGSplitViewController.h"
 
 @implementation SplitViewAppDelegate
 
@@ -26,16 +24,15 @@
     // Override point for customization after app launch.
     
     // Add the split view controller's view to the window and display.
-	rootViewController = [[[RootViewController alloc] initWithStyle:UITableViewStylePlain] autorelease];
-	detailViewController = [[[DetailViewController alloc] init] autorelease];
-	splitViewController = [[UISplitViewController alloc] init];
-	
-	splitViewController.delegate = detailViewController;
-	splitViewController.viewControllers = [NSArray arrayWithObjects:rootViewController, detailViewController, nil];
-	
-    [self.window addSubview:splitViewController.view];
-    [self.window makeKeyAndVisible];
+	[window addSubview:splitViewController.view];
+    [window makeKeyAndVisible];
     
+	if (YES) { // whether to allow dragging the divider to move the split.
+		splitViewController.splitWidth = 15.0; // make it wide enough to actually drag!
+		splitViewController.allowsDraggingDivider = YES;
+	}	
+	
+	
     return YES;
 }
 

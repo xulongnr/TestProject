@@ -44,17 +44,17 @@
 
 - (void)configureView {
     // Update the user interface for the detail item.
-    detailDescriptionLabel.text = [detailItem description];   
+    detailDescriptionLabel.text = [detailItem description];  
+	
 }
 
 
 #pragma mark -
 #pragma mark Split view support
 
-- (void)splitViewController: (UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController 
+- (void)splitViewController: (MGSplitViewController*)svc willHideViewController:(UIViewController *)aViewController 
 		  withBarButtonItem: (UIBarButtonItem*)barButtonItem forPopoverController: (UIPopoverController*)pc {
     
-	//barButtonItem.title = @"Feeds";
 	barButtonItem.title = NSLocalizedString(@"Feeds", nil);
 		
     NSMutableArray *items = [[toolbar items] mutableCopy];
@@ -66,7 +66,7 @@
 
 
 // Called when the view is shown again in the split view, invalidating the button and popover controller.
-- (void)splitViewController: (UISplitViewController*)svc willShowViewController:(UIViewController *)aViewController 
+- (void)splitViewController: (MGSplitViewController*)svc willShowViewController:(UIViewController *)aViewController 
   invalidatingBarButtonItem: (UIBarButtonItem *)barButtonItem {
     
     NSMutableArray *items = [[toolbar items] mutableCopy];
@@ -75,6 +75,33 @@
     [items release];
     self.popoverController = nil;
 }
+
+- (void)splitViewController:(MGSplitViewController*)svc 
+		  popoverController:(UIPopoverController*)pc 
+  willPresentViewController:(UIViewController *)aViewController
+{
+	//NSLog(@"%@", NSStringFromSelector(_cmd));
+}
+
+
+- (void)splitViewController:(MGSplitViewController*)svc willChangeSplitOrientationToVertical:(BOOL)isVertical
+{
+	//NSLog(@"%@", NSStringFromSelector(_cmd));
+}
+
+
+- (void)splitViewController:(MGSplitViewController*)svc willMoveSplitToPosition:(float)position
+{
+	//NSLog(@"%@", NSStringFromSelector(_cmd));
+}
+
+
+- (float)splitViewController:(MGSplitViewController *)svc constrainSplitPosition:(float)proposedPosition splitViewSize:(CGSize)viewSize
+{
+	//NSLog(@"%@", NSStringFromSelector(_cmd));
+	return proposedPosition;
+}
+
 
 
 #pragma mark -

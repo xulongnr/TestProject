@@ -25,6 +25,9 @@
 		94894F3C12B53DCF003EF83C /* feeds.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94894F3B12B53DCF003EF83C /* feeds.plist */; };
 		9494161D12C7144300010F1B /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 9494161B12C7144300010F1B /* Default-Landscape.png */; };
 		9494161E12C7144300010F1B /* Default-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 9494161C12C7144300010F1B /* Default-Portrait.png */; };
+		94F1D3FA12DA33D10077B5E5 /* MGSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F1D3F512DA33D10077B5E5 /* MGSplitViewController.m */; };
+		94F1D3FB12DA33D10077B5E5 /* MGSplitDividerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F1D3F712DA33D10077B5E5 /* MGSplitDividerView.m */; };
+		94F1D3FC12DA33D10077B5E5 /* MGSplitCornersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94F1D3F912DA33D10077B5E5 /* MGSplitCornersView.m */; };
 		94F2785012AF4DDE00AF5134 /* NewsDetailViewController-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94F2784F12AF4DDE00AF5134 /* NewsDetailViewController-iPad.xib */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +59,12 @@
 		94894F3B12B53DCF003EF83C /* feeds.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = feeds.plist; sourceTree = "<group>"; };
 		9494161B12C7144300010F1B /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape.png"; sourceTree = "<group>"; };
 		9494161C12C7144300010F1B /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait.png"; sourceTree = "<group>"; };
+		94F1D3F412DA33D10077B5E5 /* MGSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitViewController.h; sourceTree = "<group>"; };
+		94F1D3F512DA33D10077B5E5 /* MGSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitViewController.m; sourceTree = "<group>"; };
+		94F1D3F612DA33D10077B5E5 /* MGSplitDividerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitDividerView.h; sourceTree = "<group>"; };
+		94F1D3F712DA33D10077B5E5 /* MGSplitDividerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitDividerView.m; sourceTree = "<group>"; };
+		94F1D3F812DA33D10077B5E5 /* MGSplitCornersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGSplitCornersView.h; sourceTree = "<group>"; };
+		94F1D3F912DA33D10077B5E5 /* MGSplitCornersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGSplitCornersView.m; sourceTree = "<group>"; };
 		94F2784F12AF4DDE00AF5134 /* NewsDetailViewController-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "NewsDetailViewController-iPad.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,6 +85,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				94F1D3F312DA33D10077B5E5 /* MGSplitViewController */,
 				84AB05BB1037DCAB004F6A96 /* View Controllers */,
 				8477971E103709720056408D /* BlogRss */,
 				1D3623240D0F684500981E51 /* RssFunAppDelegate.h */,
@@ -172,6 +182,19 @@
 			name = "Resources-iPad";
 			sourceTree = "<group>";
 		};
+		94F1D3F312DA33D10077B5E5 /* MGSplitViewController */ = {
+			isa = PBXGroup;
+			children = (
+				94F1D3F412DA33D10077B5E5 /* MGSplitViewController.h */,
+				94F1D3F512DA33D10077B5E5 /* MGSplitViewController.m */,
+				94F1D3F612DA33D10077B5E5 /* MGSplitDividerView.h */,
+				94F1D3F712DA33D10077B5E5 /* MGSplitDividerView.m */,
+				94F1D3F812DA33D10077B5E5 /* MGSplitCornersView.h */,
+				94F1D3F912DA33D10077B5E5 /* MGSplitCornersView.m */,
+			);
+			name = MGSplitViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -264,6 +287,9 @@
 				8477972610370A080056408D /* BlogRss.m in Sources */,
 				84AB062C1037EDF9004F6A96 /* NewsDetailViewController.m in Sources */,
 				94894F3212B53D34003EF83C /* FeedListViewController.m in Sources */,
+				94F1D3FA12DA33D10077B5E5 /* MGSplitViewController.m in Sources */,
+				94F1D3FB12DA33D10077B5E5 /* MGSplitDividerView.m in Sources */,
+				94F1D3FC12DA33D10077B5E5 /* MGSplitCornersView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

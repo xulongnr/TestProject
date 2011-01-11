@@ -141,7 +141,8 @@
 	_dividerView = [[MGSplitDividerView alloc] initWithFrame:divRect];
 	_dividerView.splitViewController = self;
 	_dividerView.backgroundColor = MG_DEFAULT_CORNER_COLOR;
-	_dividerStyle = MGSplitViewDividerStyleThin;
+	//_dividerStyle = MGSplitViewDividerStyleThin;
+	_dividerStyle = MGSplitViewDividerStylePaneSplitter;
 }
 
 

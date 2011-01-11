@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MGSplitViewController.h"
 
-@interface DetailViewController : UIViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate> {
-    
-    UIPopoverController *popoverController;
+@interface DetailViewController : UIViewController <UIPopoverControllerDelegate, MGSplitViewControllerDelegate> {
+    MGSplitViewController *splitController;
+	UIPopoverController *popoverController;
     UIToolbar *toolbar;
     
     id detailItem;
