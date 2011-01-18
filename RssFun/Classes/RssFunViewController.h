@@ -15,22 +15,23 @@
 @class RssFunAppDelegate;
 
 @interface RssFunViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,
-													BlogRssParserDelegate,FeedSelectDelegate> {
-	BlogRssParser * _rssParser;
-	UITableView * _tableView;
-	RssFunAppDelegate * _appDelegate;
-	UIToolbar * _toolbar;
+									BlogRssParserDelegate,FeedSelectDelegate> {
+								
+	BlogRssParser     * rssParser;
+	RssFunAppDelegate * appDelegate;										
+	UITableView       * _tableView;
+	UIBarButtonItem   * refreshButton;
 	UIPopoverController * _popover;
-	NSString * rssURL;
+    NSString          * rssURL;
 }
 
 @property (nonatomic,retain) IBOutlet BlogRssParser * rssParser;
 @property (nonatomic,retain) IBOutlet UITableView * tableView;
-@property (nonatomic,retain) IBOutlet UIToolbar * toolbar;
 @property (nonatomic,retain) IBOutlet RssFunAppDelegate * appDelegate;
 @property (nonatomic,retain) NSString *rssURL;
 
--(void)toggleToolBarButtons:(BOOL)newState;
+-(void)toggleBarButtons:(BOOL)newState;
+-(void)configureView;
 
 @end
 

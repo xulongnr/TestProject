@@ -14,19 +14,17 @@
 
 @implementation RssFunViewController
 
-@synthesize rssParser = _rssParser;
+@synthesize rssParser;
 @synthesize tableView = _tableView;
-@synthesize appDelegate = _appDelegate;
-@synthesize toolbar = _toolbar;
+@synthesize appDelegate;
 @synthesize rssURL;
 
--(void)toolbarInit{
-    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc]
-								   initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
-								   target:self action:@selector(reloadRss)];
+-(void)barButtonsInit{
+    refreshButton = [[UIBarButtonItem alloc]
+					initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+					target:self action:@selector(reloadRss)];
 	refreshButton.enabled = NO;
-	NSArray *items = [NSArray arrayWithObjects:refreshButton, nil];
-	[self.toolbar setItems:items animated:NO];
+	self.navigationItem.rightBarButtonItem = refreshButton;
 	
 	UIBarButtonItem *feedsButton = [[UIBarButtonItem alloc]
 									initWithTitle:@"选择订阅" style:UIBarButtonItemStylePlain
@@ -34,7 +32,6 @@
 	feedsButton.enabled = YES;
 	self.navigationItem.leftBarButtonItem = feedsButton;
 	
-	[refreshButton release];
 	[feedsButton release];
 }
 
@@ -85,12 +82,12 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	[self setTitle:@"新闻索引"];
-	[self toolbarInit];
-	_rssParser = [[BlogRssParser alloc] init];
+	[self barButtonsInit];
+	rssParser = [[BlogRssParser alloc] init];
 	self.rssParser.delegate = self;
 	
 	// set rss to weiphone by default
-	//self.rssURL = @"http://news.weiphone.com/rss.xml";
+	self.rssURL = @"http://news.weiphone.com/rss.xml";
 	
 	NSLog(@"view Did Load");
 	
@@ -98,22 +95,19 @@
 }
 	
 -(void)reloadRss{
-	[self toggleToolBarButtons:NO];
-	[[self rssParser]startProcess];
+	[self toggleBarButtons:NO];
+	[[self rssParser] startProcess];
 }
 
--(void)toggleToolBarButtons:(BOOL)newState{
-	NSArray *toolbarItems = self.toolbar.items;
-	for (UIBarButtonItem *item in toolbarItems){
-		item.enabled = newState;
-	}	
+-(void)toggleBarButtons:(BOOL)newState{
+	refreshButton.enabled = newState;
 }
 
 //Delegate method for blog parser will get fired when the process is completed
 - (void)processCompleted{
 	//reload the table view
-	[self toggleToolBarButtons:YES];
-	[[self tableView]reloadData];
+	[self toggleBarButtons:YES];
+	[[self tableView] reloadData];
 }
 
 -(void)processHasErrors{
@@ -121,10 +115,10 @@
 	UIAlertView *alert = [[UIAlertView alloc] 
 			initWithTitle:@"世考新闻" message:@"尊敬的用户，我们十分抱歉的告诉您，因为您的账户余额不足，所以无权限继续访问，谢谢！"
 			 delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-	NSLog(@"Error!");
+	
 	[alert show];	
 	[alert release];
-	[self toggleToolBarButtons:YES];
+	[self toggleBarButtons:YES];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -132,7 +126,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-	UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"rssItemCell"];
+	UITableViewCell * cell = [_tableView dequeueReusableCellWithIdentifier:@"rssItemCell"];
 	if(nil == cell){
 		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"rssItemCell"]autorelease];
 	}
@@ -173,10 +167,10 @@
 
 
 - (void)dealloc {
-	[_appDelegate release];
-	[_toolbar release];
+	[refreshButton release];
+	[appDelegate release];
 	[_tableView release];
-	[_rssParser release];
+	[rssParser release];
 	[_popover release];
     [super dealloc];
 }

@@ -10,35 +10,32 @@
 #import "RssFunAppDelegate.h"
 #import "BlogRss.h"
 
-#define TITLE_TEXT_SIZE 25
-#define BODY_TEXT_SIZE  20
-
 @implementation NewsDetailViewController
 
-@synthesize appDelegate = _appDelegate;
-@synthesize titleTextView = _titleTextView;
-@synthesize descriptionTextView = _descriptionTextView;
-@synthesize toolbar = _toolbar;
-@synthesize image = _image;
+@synthesize appDelegate;
+@synthesize titleTextView;
+
 
 -(void)viewDidLoad{
 	[super viewDidLoad];
 	[self setTitle:@"新闻阅读"];
 	 
-    UIBarButtonItem *actionButton = [[UIBarButtonItem alloc]
-									  initWithBarButtonSystemItem:UIBarButtonSystemItemAction
-									  target:self action:@selector(openWebLink)];
-	NSArray *items = [NSArray arrayWithObjects: actionButton,  nil];
-	[self.toolbar setItems:items animated:NO];
-	[actionButton release];
+    openLinkButton = [[UIBarButtonItem alloc]
+					initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+					target:self action:@selector(openWebLink)];
+	
+	self.navigationItem.rightBarButtonItem = openLinkButton;
 }
 
 -(void)openWebLink{
 	// open a dialog with an OK and cancel button
-	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Do you want to open current item in browser?"
-															 delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"OK" otherButtonTitles:nil];
+	UIActionSheet *actionSheet = [[UIActionSheet alloc] 
+								initWithTitle:@"Do you want to open current item in browser?"
+								delegate:self cancelButtonTitle:@"Cancel" 
+								destructiveButtonTitle:@"OK" otherButtonTitles:nil];
+	
 	actionSheet.actionSheetStyle = UIActionSheetStyleDefault;
-	[actionSheet showFromToolbar:_toolbar];
+	[actionSheet showFromBarButtonItem:openLinkButton animated:YES];
 	[actionSheet release];	
 }
 
@@ -50,26 +47,21 @@
 
 - (void)setLabelPositon {
 	
-	CGRect txtRect = CGRectMake(0, 0, _image.frame.origin.x, _image.frame.size.height+20);
-	[_titleTextView setFrame:txtRect];
-	[_titleTextView setFont:[UIFont boldSystemFontOfSize:TITLE_TEXT_SIZE]];
-	//[_titleTextView setTextAlignment:UITextAlignmentCenter];
-	
-	txtRect = CGRectMake(0, txtRect.size.height, _appDelegate.window.frame.size.width, 
-						 _appDelegate.window.frame.size.height - txtRect.size.height); 
-	[_descriptionTextView setFrame:txtRect];
-	[_descriptionTextView setFont:[UIFont systemFontOfSize:BODY_TEXT_SIZE]];
+	CGRect txtRect = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+	[titleTextView setFrame:txtRect];
+	[titleTextView setFont:[UIFont systemFontOfSize:23]];
 }
 
 
 - (void)viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:animated];
 	
-	// Set default image name
-	[[self image] setImage:[UIImage imageNamed:@"SicoTech.jpg"]];
-	
-	self.titleTextView.text = [[[self appDelegate] currentlySelectedBlogItem]title];
-	self.descriptionTextView.text = [[[self appDelegate] currentlySelectedBlogItem]description];
+	NSMutableString * textString = [[NSMutableString alloc] init];
+	[textString appendString:[[[self appDelegate] currentlySelectedBlogItem] title]];
+	[textString appendString:@"\n-------------------------------------------------\n"];
+	[textString appendString:[[[self appDelegate] currentlySelectedBlogItem] description]];
+	 
+	self.titleTextView.text = textString;
 	
 	[self setLabelPositon];
 }
@@ -96,7 +88,7 @@
 }
 
 - (void)dealloc {
-	[_appDelegate release];
+	[openLinkButton release];
     [super dealloc];
 }
 

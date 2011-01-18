@@ -11,17 +11,12 @@
 @class RssFunAppDelegate;
 
 @interface NewsDetailViewController : UIViewController <UIActionSheetDelegate>{
-	RssFunAppDelegate * _appDelegate;
-	UITextView * _titleTextView;
-	UITextView * _descriptionTextView;
-	UIToolbar  * _toolbar;
-	UIImageView * _image;
+	RssFunAppDelegate * appDelegate;
+	UITextView        * titleTextView;
+	UIBarButtonItem   * openLinkButton;
 }
 
 @property (nonatomic, retain) IBOutlet RssFunAppDelegate * appDelegate;
 @property (nonatomic, retain) IBOutlet UITextView * titleTextView;
-@property (nonatomic, retain) IBOutlet UITextView * descriptionTextView;
-@property (nonatomic, retain) IBOutlet UIToolbar * toolbar;
-@property (nonatomic, retain) IBOutlet UIImageView * image;
 
 @end
